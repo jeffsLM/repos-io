@@ -1,0 +1,34 @@
+@import "/src/styles/colors";
+
+.buttonContainer {
+    transition: background 0.2s ease;
+
+    &[data-variant="outline"] {
+        background: $white;
+        border: 2px solid $apricot;
+        &:focus-within {
+            background: rgba(0, 0, 0,0.04);
+        }
+
+        button {
+            padding: 0.5rem;            
+            width: 100%;
+            color: $apricot;
+            background: rgba(0, 0, 0, 0);
+        }
+    }
+
+    &[data-variant="solid"] {
+        background: $apricot;
+        &:focus-within {
+            background: $apricot-peach;
+        }
+
+        button {
+            padding: 0.5rem;        
+            width: 100%;
+            color: $white;
+            background: rgba(0, 0, 0, 0);
+        }
+    }
+}
