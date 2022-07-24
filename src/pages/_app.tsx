@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>REPOS.IO</title>
       </Head>
+      <div id="root"></div>
       <Component {...pageProps} />
     </>)
 }
