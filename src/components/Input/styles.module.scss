@@ -1,0 +1,27 @@
+@import "/src/styles/colors";
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $white;
+    max-width: 35rem; 
+    
+    &:focus-within {
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+    button {
+        padding: 0.3rem;
+        border: 0;
+        background: $white;
+    }
+
+    input{
+        font-size: 1rem;
+        border: 0;
+        padding: 0.5rem;
+        width: 100%;
+    }
+}
+
