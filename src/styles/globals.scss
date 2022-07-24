@@ -9,6 +9,11 @@
 
 body {
   font-family: $font-roboto;
+  background: $iron;
+}
+
+#root{
+  display: none;
 }
 
 @media (max-width: 1080px) {

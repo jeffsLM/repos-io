@@ -1,0 +1,50 @@
+@import "/src/styles/colors";
+
+.contentContainer {
+    width: 100%;
+    display: block;
+    background: $apricot;
+    transition: max-height 0.2s;
+
+    form {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        height: 100vh;
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    &[data-variant="partial"] {
+        max-height: 180px;
+    }
+
+    &[data-variant="inline"] {
+        max-height: 100px;
+    }
+
+}
+
+.hero {
+    background: $apricot;
+}
+
+.ContentMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.mainSection {
+    max-width: 1120px;
+    position: relative;
+
+    height: 250vh;
+    width: 100%;
+    margin: 0.4rem;
+    margin-top: 75px;
+}
