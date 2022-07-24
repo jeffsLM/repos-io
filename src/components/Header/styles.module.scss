@@ -2,27 +2,38 @@
 
 .hero {
   width: 100%;
+  padding-top: 0.2rem;
+
+  &[data-variant="full"] {
+    .contentSearch {
+      max-width: 95%;
+    }
+  }
 
   &[data-variant="partial"] {
     display: flex;
-    justify-content: space-between;
-    max-width: 800px;
+    justify-content: space-around;
+
+    .contentSearch {
+      width: 20rem;
+    }
   }
 
-  &[data-variant="inline"]{
-    .contentSearch{
+  &[data-variant="inline"] {
+    .contentSearch {
       display: flex;
-      // max-width: 50%;
-      div{
-        margin-left: 1rem
+      div {
+        margin-left: 1rem;
       }
     }
 
-    .contentAvatar{
+    .contentAvatar {
       display: none;
     }
   }
 }
+
+
 
 .contentAvatar {
   display: flex;

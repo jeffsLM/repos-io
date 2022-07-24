@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { FC, HtmlHTMLAttributes, InputHTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 import { Input } from '../Input';
 import { Logo } from '../Logo';
 import styles from './styles.module.scss'
@@ -11,7 +11,7 @@ interface HeaderProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Header: FC<HeaderProps> = ({ variant, ...rest }) => {
   return (
-    <header className={styles.hero} data-variant={variant}>
+    <section className={styles.hero} data-variant={variant}>
       <div className={styles.contentSearch}>
         <Logo variant={variant} />
         <Input
@@ -28,7 +28,7 @@ export const Header: FC<HeaderProps> = ({ variant, ...rest }) => {
           className={styles.avatarSearch}
           alt="Girl Searching" />
       </div>
-    </header>
+    </section>
   );
 }
 
