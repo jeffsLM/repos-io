@@ -1,0 +1,11 @@
+@import "/src/styles/colors";
+
+.ContainerLoading {
+    display: flex;
+    justify-content: center;
+
+    div {
+        width: 20rem;
+        margin-top: -4rem;
+    }
+}
