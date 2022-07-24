@@ -1,0 +1,14 @@
+@import "/src/styles/colors";
+
+.title {
+  div {
+    width: 5rem;
+    height: 0.3rem;
+    background: $apricot;
+  }
+  
+  h4 {
+    margin: 0.5rem 0.5rem;
+    padding-left: 20px;
+  }
+}
