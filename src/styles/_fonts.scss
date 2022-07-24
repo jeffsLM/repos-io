@@ -1,0 +1,22 @@
+$font-roboto: "Roboto",sans-serif;
+
+@font-face {
+    font-family: "OstrichSans-Light";
+    src:          url("/fonts/OstrichSans-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OstrichSans-Medium";
+    src:          url("/fonts/OstrichSans-Medium.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OstrichSans-Black";
+    src:          url("/fonts/OstrichSans-Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+}
