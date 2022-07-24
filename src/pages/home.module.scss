@@ -1,0 +1,51 @@
+@import "/src/styles/colors";
+
+
+.contentContainer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home {
+  background: $apricot;
+}
+
+.hero {
+  max-width: 800px;
+  width:80%;
+}
+
+.contentAvatar{
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;  
+  width: 100%;
+}
+
+.avatarSearch {
+  margin-top: 1.7rem;
+  max-width: 280px;
+
+  @media (min-width: 0px) and (max-width: 612px) {
+    display: none;
+  }
+
+  @media (min-width: 613px) and (max-width: 738px) {
+    width: 180px;
+  }
+
+  @media (min-width: 739px) and (max-width: 1000px) {
+    width: 240px;
+  }
+
+  @media (min-width: 1001px) and (max-width: 1440px) {
+    width: 280px;
+  }
+}
