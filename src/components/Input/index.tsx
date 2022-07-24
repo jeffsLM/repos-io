@@ -16,9 +16,11 @@ export const Input: FC<InputProps> = ({ name,placeholder,type,onClick, ...rest }
                 id={name}
                 placeholder={placeholder}
                 {...rest}
+                type="text"
+                autoComplete="off"
             >
             </input>
-            <button type={type} onClick={onClick}>
+            <button type={type} onClick={onClick} aria-label="search repository">
                 <AiOutlineSearch size={15} />
             </button>
         </div>
