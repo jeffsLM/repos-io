@@ -6,6 +6,9 @@ const nextConfig = {
     locales: ["pt-BR"],
     defaultLocale: "pt-BR",
   },
+  images: {
+    domains: ['assets.vercel.com','raw.githubusercontent.com','avatars.githubusercontent.com'],
+  },
 }
 
 module.exports = nextConfig

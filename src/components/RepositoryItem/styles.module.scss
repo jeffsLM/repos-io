@@ -1,0 +1,47 @@
+@import "/src/styles/colors";
+
+.repository_item_container {
+    width: 100%;
+    background: $white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem 0.5rem;
+}
+
+.repository_perfil {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+    margin-right: 1rem;
+
+    span > img {
+        border-radius: 10rem;
+    }
+}
+
+.repository_content {
+    width: 80%;
+    h4 {
+        border-left: 5px solid $apricot;
+        padding-left: 0.5rem;
+        margin: 0.5rem 0rem 0.5rem 0rem;
+    }
+
+    span {
+        font-size: 0.95rem;
+        text-align: justify;
+        color: $oslo-gray;
+    }
+    div {
+        margin-top: 1rem;
+    }
+}
+
+.repository_action {
+    display: flex;
+    justify-content: flex-end;
+}

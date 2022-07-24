@@ -1,15 +1,17 @@
 @import "/src/styles/colors";
 
 .contentContainer {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: 100vh;
+  form {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100vh;
 
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .home {
