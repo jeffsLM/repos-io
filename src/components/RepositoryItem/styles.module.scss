@@ -44,4 +44,9 @@
 .repository_action {
     display: flex;
     justify-content: flex-end;
+
+    &[data-variant="dropdown"] {
+        justify-content: space-between;
+
+    }
 }

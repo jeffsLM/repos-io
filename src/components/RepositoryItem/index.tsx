@@ -1,21 +1,31 @@
 
-import { FC, HtmlHTMLAttributes } from 'react';
+import { FC, SelectHTMLAttributes } from 'react';
 import Image from 'next/image'
 
 import { Button } from '../Button';
 import styles from './styles.module.scss'
+import { Dropdown, MetaDataType } from '../Dropdown';
 
 
-interface RepositoryItemProps extends HtmlHTMLAttributes<HTMLHeadingElement> {
+interface RepositoryItemProps extends SelectHTMLAttributes<HTMLSelectElement>  {
     srcImage: string;
     descriptionRepository: string;
     linkPerfil: string;
     loginUser: string;
-    repositoryName: string;
+    branches_url?: string;
+
+    title: string;
     onClick: () => void;
+    variant?: 'dropdown' | 'simple' 
+    metaData?: MetaDataType[];
+
+    htmlID?: string;
+    label?: string;
+    textButton?: string;
+    variantButton?: "outline" | "solid";
 }
 
-export const RepositoryItem: FC<RepositoryItemProps> = ({ srcImage, loginUser, descriptionRepository, linkPerfil, repositoryName, onClick, ...rest }) => {
+export const RepositoryItem: FC<RepositoryItemProps> = ({variantButton = 'outline',textButton, srcImage,branches_url,metaData,htmlID,label, variant = '', loginUser, descriptionRepository, linkPerfil, title, onClick, ...rest }) => {
 
     return (
         <li className={styles.repository_item_container}>
@@ -34,13 +44,21 @@ export const RepositoryItem: FC<RepositoryItemProps> = ({ srcImage, loginUser, d
             </div>
             <div className={styles.repository_content}>
                 <h4>
-                    {repositoryName}
+                    {title}
                 </h4>
                 <span>
                     {descriptionRepository ? descriptionRepository : 'Nenhuma descrição foi informada para este repositório'}
                 </span>
-                <div className={styles.repository_action}>
-                    <Button variant='outline' onClick={onClick}>MAIS DETALHES</Button>
+                <div className={styles.repository_action} data-variant={variant}>
+                    {variant == 'dropdown' &&
+                        <Dropdown
+                            metaData={metaData}
+                            htmlID={htmlID}
+                            {...rest }
+                            
+                        />
+                    }
+                    { variant != 'simple' && <Button variant={variantButton} onClick={onClick}>{textButton}</Button>}
                 </div>
             </div>
         </li>
