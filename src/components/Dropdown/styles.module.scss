@@ -1,0 +1,15 @@
+@import "/src/styles/colors";
+
+.dropdownContainer {
+    select {
+        width: 70%; 
+        background: $white;
+        font-weight: bold;    
+        padding: 0.3rem;    
+  
+        option {
+            font-weight: bold;
+        }
+    }
+
+}
