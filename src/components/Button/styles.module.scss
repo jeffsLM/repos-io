@@ -7,29 +7,54 @@
         background: $white;
         border: 2px solid $apricot;
         &:focus-within {
-            background: rgba(0, 0, 0,0.04);
+            background: rgba(0, 0, 0, 0.04);
         }
 
         button {
-            padding: 0.5rem;            
+            padding: 0.5rem;
             width: 100%;
             color: $apricot;
             background: rgba(0, 0, 0, 0);
             font-weight: 400;
+            
+            span {
+                color: $apricot;
+            }
+
+            svg {
+                display: none;
+            }
         }
     }
 
     &[data-variant="solid"] {
         background: $apricot;
+        color: $white;
         &:focus-within {
             background: $apricot-peach;
         }
 
         button {
-            padding: 0.5rem;        
+            padding: 0.5rem;
             width: 100%;
-            color: $white;
+
             background: rgba(0, 0, 0, 0);
+            color: $white;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+
+            span {
+                color: $white;
+                @media (min-width: 0px) and (max-width: 738px) {
+                    display: none;
+                }
+            }
+
+            svg {
+                margin-left: 0.2rem;
+            }
         }
     }
 }

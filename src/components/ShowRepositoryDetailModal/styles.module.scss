@@ -1,0 +1,42 @@
+@import "/src/styles/colors";
+
+.modal {
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    overflow: auto;
+
+    .container {
+        position: relative;
+        height:90%;
+        overflow: auto;    
+      }
+      
+      .inner {
+        position: relative;
+        height: auto;
+      }
+      
+      .full-height {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 128px;
+        bottom: 0;
+        height: 100%;
+        background: blue;
+      }
+}
+
+
+.closeContent{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}

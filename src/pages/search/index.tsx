@@ -1,18 +1,18 @@
-import type { NextPage, GetStaticProps } from 'next'
+import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { github } from '../../services/github'
+import { github } from '../../services/github';
 import { Header } from '../../components/Header';
-
-import styles from './styles.module.scss';
 import { Title } from '../../components/Title';
 import { RepositoryItem } from '../../components/RepositoryItem';
 import { RepositoryContainer } from '../../components/RepositoryContainer';
 import { ShowRepositoryDetailModal } from '../../components/ShowRepositoryDetailModal';
 import { Loading } from '../../components/Loading';
 import { NoResults } from '../../components/NoResults';
+
+import styles from './styles.module.scss';
 
 const Search: NextPage = () => {
     const { ref, inView } = useInView({ threshold: 0 });
@@ -23,11 +23,32 @@ const Search: NextPage = () => {
     const [repositories, setRepositories] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [repoSelected, setRepoSelected] = useState({
+        title: '',
+        descriptionRepository: '',
+        srcImage: '',
+        loginUser: '',
+        linkPerfil: '',
+        branches_url: ''
+    })
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-    useEffect(() => {
-        handleAllRepositoriesInfoBySearchTerm(router.query.q as string);
-    }, [])
+
+    function handleOpenModal() {
+        setIsModalOpen(true)
+    }
+    function handleCloseModal() {
+        setIsModalOpen(false)
+        setRepoSelected({
+            title: '',
+            descriptionRepository: '',
+            srcImage: '',
+            loginUser: '',
+            linkPerfil: '',
+            branches_url: ''
+        })
+    }
 
     useEffect(() => {
         if (searchTerm != router.query.q && router.query.q) {
@@ -55,7 +76,7 @@ const Search: NextPage = () => {
                 })
                 .catch(e => {
                     setIsLoading(false),
-                    setError(true)
+                        setError(true)
                 })
 
             setSearchTerm(searchTerm)
@@ -92,23 +113,33 @@ const Search: NextPage = () => {
                     <RepositoryContainer>
                         {isLoading ? <Loading /> :
                             repositories.map((item, key) => {
-                                console.log(isLoading)
                                 return <RepositoryItem
-                                    repositoryName={item.name}
+                                    title={item.name}
                                     descriptionRepository={item.description}
                                     srcImage={item.owner.avatar_url}
                                     loginUser={item.owner.login}
                                     linkPerfil={item.owner.html_url}
+                                    branches_url={item.branches_url}
                                     key={key}
-                                    onClick={() => { console.log('asdasdasdas') }}
+                                    textButton="MAIS DETALHES"
+                                    onClick={() => {
+                                        setRepoSelected({
+                                            title: item.name,
+                                            descriptionRepository: item.description,
+                                            srcImage: item.owner.avatar_url,
+                                            loginUser: item.owner.login,
+                                            linkPerfil: item.owner.html_url,
+                                            branches_url: item.branches_url,
+                                        }), handleOpenModal()
+                                    }}
                                 />
                             })
                         }
-                        {!isLoading && error ? <NoResults /> : null}
+                        {!isLoading && (error || repositories.length == 0) ? <NoResults /> : null}
                     </RepositoryContainer>
                 </section>
             </div>
-            <ShowRepositoryDetailModal isOpen={true} onRequestClose={() => { }} />
+            <ShowRepositoryDetailModal isOpen={isModalOpen} onRequestClose={handleCloseModal} data={repoSelected} />
         </main>
     )
 }
